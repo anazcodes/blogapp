@@ -1,0 +1,272 @@
+definitions:
+  blogapp.AddBlogPost:
+    properties:
+      body:
+        type: string
+      description:
+        type: string
+      title:
+        type: string
+    type: object
+  blogapp.BlogPost:
+    properties:
+      body:
+        type: string
+      created_at:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      title:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  blogapp.BlogPostID:
+    properties:
+      id:
+        type: integer
+    type: object
+  blogapp.UpdateBlogPost:
+    properties:
+      body:
+        type: string
+      description:
+        type: string
+      title:
+        type: string
+    type: object
+  request.Response:
+    properties:
+      data: {}
+      error: {}
+      message:
+        type: string
+      status:
+        type: integer
+    type: object
+info:
+  contact:
+    email: anazibinurasheed@gmail.com
+    name: Anaz Ibinu Rasheed
+    url: https://www.linkedin.com/in/anaz-ibinu-rasheed-a2b461253/
+  description: A Blog Post CRUD API in Go powered by Fiber framework.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: Blog Post CRUD
+  version: "1.0"
+paths:
+  /api/blog-post:
+    get:
+      consumes:
+      - application/json
+      description: Retrieves all the available Blog Posts.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            allOf:
+            - $ref: '#/definitions/request.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/blogapp.BlogPost'
+                  type: array
+              type: object
+        "400":
+          description: Failed to bind path param
+          schema:
+            $ref: '#/definitions/request.Response'
+        "404":
+          description: Referenced resource does not found in the system
+          schema:
+            $ref: '#/definitions/request.Response'
+        "422":
+          description: Failed to save, blog storage capacity reached
+          schema:
+            $ref: '#/definitions/request.Response'
+        "500":
+          description: Failed to process your request
+          schema:
+            $ref: '#/definitions/request.Response'
+      summary: Blog Posts
+      tags:
+      - Blog Post
+    post:
+      consumes:
+      - application/json
+      description: Creates a new Blog Post entry to the system and returns the Blog
+        Post's ID.
+      parameters:
+      - description: Payload
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/blogapp.AddBlogPost'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Success
+          schema:
+            allOf:
+            - $ref: '#/definitions/request.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/blogapp.BlogPostID'
+              type: object
+        "400":
+          description: Failed to bind path param
+          schema:
+            $ref: '#/definitions/request.Response'
+        "404":
+          description: Referenced resource does not found in the system
+          schema:
+            $ref: '#/definitions/request.Response'
+        "422":
+          description: Failed to save, blog storage capacity reached
+          schema:
+            $ref: '#/definitions/request.Response'
+        "500":
+          description: Failed to process your request
+          schema:
+            $ref: '#/definitions/request.Response'
+      summary: Add Blog Post
+      tags:
+      - Blog Post
+  /api/blog-post/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Deletes Blog Post in the given ID.
+      parameters:
+      - description: Blog Post ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            allOf:
+            - $ref: '#/definitions/request.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/blogapp.BlogPostID'
+              type: object
+        "400":
+          description: Failed to bind path param
+          schema:
+            $ref: '#/definitions/request.Response'
+        "404":
+          description: Referenced resource does not found in the system
+          schema:
+            $ref: '#/definitions/request.Response'
+        "422":
+          description: Failed to save, blog storage capacity reached
+          schema:
+            $ref: '#/definitions/request.Response'
+        "500":
+          description: Failed to process your request
+          schema:
+            $ref: '#/definitions/request.Response'
+      summary: Delete Blog Post
+      tags:
+      - Blog Post
+    get:
+      consumes:
+      - application/json
+      description: Retrieves single Blog Post belongs to the provided ID.
+      parameters:
+      - description: Blog Post ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            allOf:
+            - $ref: '#/definitions/request.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/blogapp.BlogPost'
+              type: object
+        "400":
+          description: Failed to bind path param
+          schema:
+            $ref: '#/definitions/request.Response'
+        "404":
+          description: Referenced resource does not found in the system
+          schema:
+            $ref: '#/definitions/request.Response'
+        "422":
+          description: Failed to save, blog storage capacity reached
+          schema:
+            $ref: '#/definitions/request.Response'
+        "500":
+          description: Failed to process your request
+          schema:
+            $ref: '#/definitions/request.Response'
+      summary: Blog Post
+      tags:
+      - Blog Post
+    patch:
+      consumes:
+      - application/json
+      description: Updates Blog Post with the given data.
+      parameters:
+      - description: Blog Post ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Payload
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/blogapp.UpdateBlogPost'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            allOf:
+            - $ref: '#/definitions/request.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/blogapp.BlogPostID'
+              type: object
+        "400":
+          description: Failed to bind path param
+          schema:
+            $ref: '#/definitions/request.Response'
+        "404":
+          description: Referenced resource does not found in the system
+          schema:
+            $ref: '#/definitions/request.Response'
+        "422":
+          description: Failed to save, blog storage capacity reached
+          schema:
+            $ref: '#/definitions/request.Response'
+        "500":
+          description: Failed to process your request
+          schema:
+            $ref: '#/definitions/request.Response'
+      summary: Update Blog Post
+      tags:
+      - Blog Post
+swagger: "2.0"

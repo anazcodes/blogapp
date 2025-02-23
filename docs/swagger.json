@@ -1,0 +1,432 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "A Blog Post CRUD API in Go powered by Fiber framework.",
+        "title": "Blog Post CRUD",
+        "contact": {
+            "name": "Anaz Ibinu Rasheed",
+            "url": "https://www.linkedin.com/in/anaz-ibinu-rasheed-a2b461253/",
+            "email": "anazibinurasheed@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/blog-post": {
+            "get": {
+                "description": "Retrieves all the available Blog Posts.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Blog Post"
+                ],
+                "summary": "Blog Posts",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/request.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/blogapp.BlogPost"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Failed to bind path param",
+                        "schema": {
+                            "$ref": "#/definitions/request.Response"
+                        }
+                    },
+                    "404": {
+                        "description": "Referenced resource does not found in the system",
+                        "schema": {
+                            "$ref": "#/definitions/request.Response"
+                        }
+                    },
+                    "422": {
+                        "description": "Failed to save, blog storage capacity reached",
+                        "schema": {
+                            "$ref": "#/definitions/request.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Failed to process your request",
+                        "schema": {
+                            "$ref": "#/definitions/request.Response"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Creates a new Blog Post entry to the system and returns the Blog Post's ID.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Blog Post"
+                ],
+                "summary": "Add Blog Post",
+                "parameters": [
+                    {
+                        "description": "Payload",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/blogapp.AddBlogPost"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/request.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/blogapp.BlogPostID"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Failed to bind path param",
+                        "schema": {
+                            "$ref": "#/definitions/request.Response"
+                        }
+                    },
+                    "404": {
+                        "description": "Referenced resource does not found in the system",
+                        "schema": {
+                            "$ref": "#/definitions/request.Response"
+                        }
+                    },
+                    "422": {
+                        "description": "Failed to save, blog storage capacity reached",
+                        "schema": {
+                            "$ref": "#/definitions/request.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Failed to process your request",
+                        "schema": {
+                            "$ref": "#/definitions/request.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/blog-post/{id}": {
+            "get": {
+                "description": "Retrieves single Blog Post belongs to the provided ID.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Blog Post"
+                ],
+                "summary": "Blog Post",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Blog Post ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/request.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/blogapp.BlogPost"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Failed to bind path param",
+                        "schema": {
+                            "$ref": "#/definitions/request.Response"
+                        }
+                    },
+                    "404": {
+                        "description": "Referenced resource does not found in the system",
+                        "schema": {
+                            "$ref": "#/definitions/request.Response"
+                        }
+                    },
+                    "422": {
+                        "description": "Failed to save, blog storage capacity reached",
+                        "schema": {
+                            "$ref": "#/definitions/request.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Failed to process your request",
+                        "schema": {
+                            "$ref": "#/definitions/request.Response"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Deletes Blog Post in the given ID.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Blog Post"
+                ],
+                "summary": "Delete Blog Post",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Blog Post ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/request.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/blogapp.BlogPostID"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Failed to bind path param",
+                        "schema": {
+                            "$ref": "#/definitions/request.Response"
+                        }
+                    },
+                    "404": {
+                        "description": "Referenced resource does not found in the system",
+                        "schema": {
+                            "$ref": "#/definitions/request.Response"
+                        }
+                    },
+                    "422": {
+                        "description": "Failed to save, blog storage capacity reached",
+                        "schema": {
+                            "$ref": "#/definitions/request.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Failed to process your request",
+                        "schema": {
+                            "$ref": "#/definitions/request.Response"
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "description": "Updates Blog Post with the given data.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Blog Post"
+                ],
+                "summary": "Update Blog Post",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Blog Post ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Payload",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/blogapp.UpdateBlogPost"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/request.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/blogapp.BlogPostID"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Failed to bind path param",
+                        "schema": {
+                            "$ref": "#/definitions/request.Response"
+                        }
+                    },
+                    "404": {
+                        "description": "Referenced resource does not found in the system",
+                        "schema": {
+                            "$ref": "#/definitions/request.Response"
+                        }
+                    },
+                    "422": {
+                        "description": "Failed to save, blog storage capacity reached",
+                        "schema": {
+                            "$ref": "#/definitions/request.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Failed to process your request",
+                        "schema": {
+                            "$ref": "#/definitions/request.Response"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "blogapp.AddBlogPost": {
+            "type": "object",
+            "properties": {
+                "body": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        },
+        "blogapp.BlogPost": {
+            "type": "object",
+            "properties": {
+                "body": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "blogapp.BlogPostID": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "blogapp.UpdateBlogPost": {
+            "type": "object",
+            "properties": {
+                "body": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        },
+        "request.Response": {
+            "type": "object",
+            "properties": {
+                "data": {},
+                "error": {},
+                "message": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}
