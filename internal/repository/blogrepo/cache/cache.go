@@ -114,8 +114,8 @@ func (c *cache) DeleteBlogPost(ctx context.Context, id uint64) (uint64, error) {
 }
 
 func (c *cache) UpdateBlogPost(ctx context.Context, id uint64, abp blogbus.UpdateBlogPost) (uint64, error) {
-	c.RLock()
-	defer c.RUnlock()
+	c.Lock()
+	defer c.Unlock()
 
 	bp, ok := c.blogs[id]
 	if !ok {
