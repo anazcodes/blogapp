@@ -1,5 +1,5 @@
 
-# Blogapp 
+# Blog App
 A Blog Post API in Go powered by Fiber framework.
 
 ## Technologies

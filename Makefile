@@ -7,7 +7,7 @@ CACHE_CAPACITY?=30
 
 # Run the application
 run:
-	go run $(CMD_DIR)/main.go --porft=$(PORT) --cache-capacity=$(CACHE_CAPACITY)
+	go run $(CMD_DIR)/main.go --port=$(PORT) --cache-capacity=$(CACHE_CAPACITY)
 
 # Build the application
 build:

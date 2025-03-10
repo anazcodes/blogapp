@@ -100,8 +100,8 @@ func (c *cache) BlogPosts(ctx context.Context) []blogbus.BlogPost {
 }
 
 func (c *cache) DeleteBlogPost(ctx context.Context, id uint64) (uint64, error) {
-	c.RLock()
-	defer c.RUnlock()
+	c.Lock()
+	defer c.Unlock()
 
 	_, ok := c.blogs[id]
 	if !ok {
