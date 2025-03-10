@@ -12,6 +12,7 @@ A Blog Post API in Go powered by Fiber framework.
 
 - Docker
 
+- Unit Testing
 ## Run on Docker
 ```bash
 docker run -p 3000:3000 --name blogapp anazibinurasheed/blogapp:latest --port=3000 --cache-capacity=30
