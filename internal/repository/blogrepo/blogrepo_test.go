@@ -3,9 +3,9 @@ package blogrepo_test
 import (
 	"testing"
 
-	"github.com/anazcodes/blog-crud-api/internal/business/blogbus"
-	"github.com/anazcodes/blog-crud-api/internal/repository/blogrepo"
-	"github.com/anazcodes/blog-crud-api/internal/repository/blogrepo/cache"
+	"github.com/anazcodes/blogapp/internal/business/blogbus"
+	"github.com/anazcodes/blogapp/internal/repository/blogrepo"
+	"github.com/anazcodes/blogapp/internal/repository/blogrepo/cache"
 	"github.com/stretchr/testify/assert"
 )
 

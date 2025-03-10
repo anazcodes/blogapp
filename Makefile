@@ -1,4 +1,4 @@
-APP_NAME=blog-crud-api
+APP_NAME=blogapp
 CMD_DIR=cmd/$(APP_NAME)
 PORT?=3001
 CACHE_CAPACITY?=30

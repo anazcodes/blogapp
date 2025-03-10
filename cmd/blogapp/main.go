@@ -7,9 +7,9 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/anazcodes/blog-crud-api/internal/api/http/blogapp"
-	"github.com/anazcodes/blog-crud-api/internal/business/blogbus"
-	"github.com/anazcodes/blog-crud-api/internal/repository/blogrepo"
+	"github.com/anazcodes/blogapp/internal/api/http/blogapp"
+	"github.com/anazcodes/blogapp/internal/business/blogbus"
+	"github.com/anazcodes/blogapp/internal/repository/blogrepo"
 )
 
 func main() {

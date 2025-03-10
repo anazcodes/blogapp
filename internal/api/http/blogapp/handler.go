@@ -4,10 +4,10 @@ import (
 	"context"
 	"time"
 
-	"github.com/anazcodes/blog-crud-api/internal/business/blogbus"
-	errs "github.com/anazcodes/blog-crud-api/internal/errs/blogapperr"
+	"github.com/anazcodes/blogapp/internal/business/blogbus"
+	errs "github.com/anazcodes/blogapp/internal/errs/blogapperr"
 
-	"github.com/anazcodes/blog-crud-api/pkg/request"
+	"github.com/anazcodes/blogapp/pkg/request"
 	"github.com/gofiber/fiber/v2"
 )
 
