@@ -43,6 +43,14 @@ Start the server
   go run cmd/blogapp/main.go --port=3000 --cache-capacity=30
 ```
 
-## Access Swagger UI
+## Access Live Swagger UI
+`https://blogapp-wkxi.onrender.com/swagger/index.html`
+
+[Click Here To Redirect](https://blogapp-wkxi.onrender.com/swagger/index.html)
+
+## Access Swagger UI Locally
 `http://localhost:3000/swagger/index.html`
+
+[Click Here To Redirect](http://localhost:3000/swagger/index.html)
+
 <!-- 
