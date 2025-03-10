@@ -3,7 +3,7 @@ package blogapp
 import (
 	"log"
 
-	_ "github.com/anazcodes/blog-crud-api/docs"
+	_ "github.com/anazcodes/blogapp/docs"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/gofiber/fiber/v2/middleware/requestid"

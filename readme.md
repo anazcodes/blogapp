@@ -1,6 +1,6 @@
 
-# Blog Post CRUD 
-A Blog Post CRUD API in Go powered by Fiber framework.
+# Blogapp 
+A Blog Post API in Go powered by Fiber framework.
 
 ## Technologies
 
@@ -10,9 +10,11 @@ A Blog Post CRUD API in Go powered by Fiber framework.
 
 - Swagger
 
+- Docker
+
 ## Run on Docker
 ```bash
-docker run -p 3000:3000 --name blogapp anazibinurasheed/blog-crud-api:latest --port=3000 --cache-capacity=30
+docker run -p 3000:3000 --name blogapp anazibinurasheed/blogapp:latest --port=3000 --cache-capacity=30
 ```
 
 ## Run Locally
@@ -20,13 +22,13 @@ docker run -p 3000:3000 --name blogapp anazibinurasheed/blog-crud-api:latest --p
 Clone the project
 
 ```bash
-  git clone https://github.com/anazcodes/blog-crud-api.git
+  git clone https://github.com/anazcodes/blogapp.git
 ```
 
 Get into project directory
 
 ```bash
-  cd blog-crud-api
+  cd blogapp
 ```
 
 Install dependencies

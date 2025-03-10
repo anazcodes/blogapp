@@ -3,9 +3,9 @@ package blogapperr
 import (
 	"net/http"
 
-	"github.com/anazcodes/blog-crud-api/internal/errs"
-	"github.com/anazcodes/blog-crud-api/internal/repository/blogrepo/cache"
-	"github.com/anazcodes/blog-crud-api/pkg/request"
+	"github.com/anazcodes/blogapp/internal/errs"
+	"github.com/anazcodes/blogapp/internal/repository/blogrepo/cache"
+	"github.com/anazcodes/blogapp/pkg/request"
 )
 
 var responses = map[error]request.Response{

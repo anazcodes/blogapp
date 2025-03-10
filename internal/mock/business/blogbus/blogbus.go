@@ -8,7 +8,7 @@ import (
 	context "context"
 	reflect "reflect"
 
-	blogbus "github.com/anazcodes/blog-crud-api/internal/business/blogbus"
+	blogbus "github.com/anazcodes/blogapp/internal/business/blogbus"
 	gomock "github.com/golang/mock/gomock"
 )
 

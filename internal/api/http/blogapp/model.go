@@ -3,7 +3,7 @@ package blogapp
 import (
 	"time"
 
-	"github.com/anazcodes/blog-crud-api/internal/business/blogbus"
+	"github.com/anazcodes/blogapp/internal/business/blogbus"
 )
 
 type BlogPost struct {

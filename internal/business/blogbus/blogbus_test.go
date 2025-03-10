@@ -4,9 +4,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/anazcodes/blog-crud-api/internal/business/blogbus"
-	mockblogbus "github.com/anazcodes/blog-crud-api/internal/mock/business/blogbus"
-	"github.com/anazcodes/blog-crud-api/internal/repository/blogrepo/cache"
+	"github.com/anazcodes/blogapp/internal/business/blogbus"
+	mockblogbus "github.com/anazcodes/blogapp/internal/mock/business/blogbus"
+	"github.com/anazcodes/blogapp/internal/repository/blogrepo/cache"
 	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/assert"
 )

@@ -4,7 +4,7 @@ package errs
 import (
 	"errors"
 
-	"github.com/anazcodes/blog-crud-api/pkg/request"
+	"github.com/anazcodes/blogapp/pkg/request"
 	"github.com/gofiber/fiber/v2"
 )
 

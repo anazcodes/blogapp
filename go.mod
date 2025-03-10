@@ -1,4 +1,4 @@
-module github.com/anazcodes/blog-crud-api
+module github.com/anazcodes/blogapp
 
 go 1.24.0
 
